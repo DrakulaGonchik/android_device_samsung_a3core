@@ -1,0 +1,43 @@
+# Symlinked partitions
+/system_image	emmc		/dev/block/mapper/system							flags=backup=0;flashimg;display="System Image"
+/vendor_image	emmc		/dev/block/mapper/vendor							flags=backup=0;flashimg;display="Vendor Image"
+/product_image	emmc		/dev/block/mapper/product							flags=backup=0;flashimg;display="Product Image"
+/system_ext_image	emmc	/dev/block/mapper/system_ext						flags=backup=0;flashimg;display="System_ext Image"
+
+# FOTA
+/ltemodem       emmc        /dev/block/by-name/l_modem                          flags=backup=1;display="ltemodem"
+/wcnmodem       emmc        /dev/block/by-name/wcnmodem                         flags=backup=1;display="wcnmodem"
+/gnssmodem      emmc        /dev/block/by-name/gnssmodem                        flags=backup=1;display="gnssmodem"
+/ltedsp         emmc        /dev/block/by-name/l_ldsp                           flags=backup=1;display="ltedsp"
+/ltegdsp        emmc        /dev/block/by-name/l_gdsp                           flags=backup=1;display="ltegdsp"
+/lteagdsp       emmc        /dev/block/by-name/l_agdsp                          flags=backup=1;display="lteagdsp"
+/ltecdsp        emmc        /dev/block/by-name/l_cdsp                           flags=backup=1;display="ltecdsp"
+/dtbo			emmc		/dev/block/by-name/dtbo								flags=backup=1;display="Dtbo"
+
+#Auto-generated code by FOTA Portal
+/optics			ext4		/dev/block/by-name/optics 							flags=backup=1;display="Optics"
+/optics_image	emmc		/dev/block/by-name/optics 							flags=backup=1;display="Optics Image";flashimg=1
+/prism			ext4		/dev/block/by-name/prism							flags=backup=1;display="Prism"
+/vbmeta         emmc        /dev/block/by-name/vbmeta                           flags=backup=1;display="Vbmeta";flashimg=1
+/vbmeta_vendor  emmc        /dev/block/by-name/vbmeta_vendor                    flags=backup=1;display="vbmeta_vendor"
+
+# Physical partitions - Data
+/metadata       ext4        /dev/block/by-name/metadata                         flags=wipeingui;display="Metadata"
+/cache          ext4        /dev/block/by-name/cache                            flags=wipeingui;display="Cache"
+/data			f2fs		/dev/block/by-name/userdata
+
+# Physical partitions - Important Data - Must Backup
+/efs            ext4        /dev/block/by-name/sec_efs                          flags=backup=1;display="Encrypting File System (EFS)"
+/sec_efs		ext4		/dev/block/by-name/sec_efs							flags=backup=1;subpartitionof=/efs
+/persist        emmc        /dev/block/by-name/persist                          flags=backup=1;display="Persist"
+
+# Physical partitions - Backupable
+/boot           emmc        /dev/block/by-name/boot                             flags=backup=1;display="Boot Image";flashimg=1
+/recovery       emmc        /dev/block/by-name/recovery							flags=backup=1;display="Recovery Image";flashimg=1
+/prism          ext4        /dev/block/by-name/prism							flags=backup=1;display="Prism";flashimg=1
+/misc           emmc        /dev/block/by-name/misc								flags=backup=1;display="Misc"
+/vbmeta_system  emmc        /dev/block/by-name/vbmeta_system					flags=backup=1;display="Vbmeta System"
+
+# External storage
+/external_sd	vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1			flags=display="Micro SD Card";storage;wipeingui;removable
+/usb_otg		auto		/dev/block/sda1 		/dev/block/sda				flags=display="USB OTG";storage;wipeingui;removable
