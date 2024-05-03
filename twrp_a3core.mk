@@ -26,7 +26,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/a31/device.mk)
+$(call inherit-product, device/samsung/a3core/device.mk)
 
 # Charger
 PRODUCT_PACKAGES += \
