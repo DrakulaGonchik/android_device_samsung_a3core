@@ -61,7 +61,7 @@ BOARD_MKBOOTIMG_ARGS := \
 	--pagesize $(BOARD_KERNEL_PAGESIZE) \
 	--board "SRPUH09A004" \
 	--dtb $(TARGET_PREBUILT_DTB) \
-	--recovery_dtbo $(BOARD_PREBUILT_DTBOIMAGE)
+	--recovery_dtbo $(BOARD_PREBUILT_DTBOIMAGE) \
 	--dtb_offset $(BOARD_DTB_OFFSET)
 
 BOARD_CUSTOM_BOOTIMG := true
