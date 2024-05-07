@@ -146,6 +146,13 @@ TW_NO_LEGACY_PROPS := true
 TW_NO_BIND_SYSTEM := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_MTP_DEVICE := "Galaxy A03 Core"
+TW_NO_SCREEN_TIMEOUT := true # touch fix
+TW_NO_SCREEN_BLANK := true # touch fix
+#TW_SCREEN_BLANK_ON_BOOT := true # touch fix
+TW_LOAD_VENDOR_MODULES := "ilitek-tddi.ko" # touch fix
+# Kernel module loading for touch, battery etc # touch fix
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\") # touch fix
+
 
 # Making the recovery.img smaller
 BOARD_HAS_NO_REAL_SDCARD := true
