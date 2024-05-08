@@ -151,7 +151,7 @@ TW_NO_SCREEN_BLANK := true # touch fix
 #TW_SCREEN_BLANK_ON_BOOT := true # touch fix
 TW_LOAD_VENDOR_MODULES := "ilitek-tddi.ko" # touch fix
 # Kernel module loading for touch, battery etc # touch fix
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\") # touch fix
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib)\") # touch fix
 
 
 # Making the recovery.img smaller
