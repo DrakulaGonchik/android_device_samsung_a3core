@@ -1,13 +1,29 @@
-#add for board init.rc for recovery mode
-#on post-fs
-    #insmod /mnt/vendor/socko/focaltech_ts.ko
-on fs
-    start load_modules
+# from vendor/etc/init/vendor.samsung.hardware.sysinput@1.1-service.rc
+on early-boot
+    chown system system /dev/tspio
+    chown system system /sys/class/sec/tsp/enable
 
+on init
+    # from recovery: init.recovery.samsung.rc
+    # unlink /efs > /mnt/vendor/efs
+    rm /efs
+    mkdir /efs
+    mkdir /sec_efs
 
-service load_modules /sbin/load_modules.sh
-    oneshot
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
+    chown system root /proc/cpwcn/wdtirq
+    chmod 766 /proc/cpwcn/wdtirq
+
+on post-fs
+    # from vendor/etc/init/init.md.rc
+    insmod ${ro.vendor.ko.mount.point}/socko/nt36xxx_ss.ko
+    insmod ${ro.vendor.ko.mount.point}/socko/chipone-tddi_ss.ko
+    insmod ${ro.vendor.ko.mount.point}/socko/gcore_ss.ko
+
+    chown system system sys/class/sec/tsp/input/enabled
+    chmod 664 sys/class/sec/tsp/input/enabled
+
+on post-fs-data
+    chown system system /proc/tp_gesture
+    chmod 0660 /proc/tp_gesture
+    chown system system /proc/icn85xx_tool
+    chmod 0660 /proc/icn85xx_tool
