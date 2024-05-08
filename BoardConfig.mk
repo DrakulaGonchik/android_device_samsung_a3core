@@ -146,12 +146,11 @@ TW_NO_LEGACY_PROPS := true
 TW_NO_BIND_SYSTEM := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_MTP_DEVICE := "Galaxy A03 Core"
-TW_NO_SCREEN_TIMEOUT := true # touch fix
-TW_NO_SCREEN_BLANK := true # touch fix
-#TW_SCREEN_BLANK_ON_BOOT := true # touch fix
-TW_LOAD_VENDOR_MODULES := "ilitek-tddi.ko" # touch fix
-# Kernel module loading for touch, battery etc # touch fix
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib)\") # touch fix
+# Kernel module loading for touch, battery etc
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
+TW_LOAD_VENDOR_MODULES := "a03_cts_fw.bin a03_cts_fw_txd.bin a03_gts_7st_fw.bin a03_gts_fw.bin a03_its_fw.bin a03_its_hr_fw.bin a03_nts_fw.bin a03_nts_mp.bin chipone-tddi.ko chipone-tddi_ss.ko focaltech_ts.ko ilitek-tddi.ko"
+TW_LOAD_VENDOR_BOOT_MODULES := true
+TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
 
 # Making the recovery.img smaller
