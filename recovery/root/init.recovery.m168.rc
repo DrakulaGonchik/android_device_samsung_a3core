@@ -14,15 +14,10 @@ on init
     chmod 766 /proc/cpwcn/wdtirq
 
 on post-fs
-    # from vendor/etc/init/init.md.rc
-    insmod ${DEVICE_PATH}/recovery/root/sbin/nt36xxx_ss.ko
-    insmod ${DEVICE_PATH}/recovery/root/sbin/chipone-tddi_ss.ko
-    insmod ${DEVICE_PATH}/recovery/root/sbin/gcore_ss.ko
-
-    # from vendor/etc/init/init.md.rc (edited by sheffdev)
-    insmod ${DEVICE_PATH}/recovery/root/sbin/nt36xxx_ss.ko
-    insmod ${DEVICE_PATH}/recovery/root/sbin/chipone-tddi_ss.ko
-    insmod ${DEVICE_PATH}/recovery/root/sbin/gcore_ss.ko
+    # from vendor/etc/init/init.md.rc (edited by sheff)
+    insmod /sbin/nt36xxx_ss.ko
+    insmod /sbin/chipone-tddi_ss.ko
+    insmod /sbin/gcore_ss.ko
 
     chown system system sys/class/sec/tsp/input/enabled
     chmod 664 sys/class/sec/tsp/input/enabled
