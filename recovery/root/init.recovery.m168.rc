@@ -14,16 +14,26 @@ on init
     chmod 766 /proc/cpwcn/wdtirq
 
 on post-fs
-    # from vendor/etc/init/init.md.rc (edited by sheffdev)
-    insmod /modules/nt36xxx_ss.ko
-    insmod /modules/chipone-tddi_ss.ko
-    insmod /modules/chipone-tddi.ko
-    insmod /modules/gcore_ss.ko
-    insmod /modules/ilitek-tddi.ko
-    insmod /modules/focaltech_ts.ko
+    # from vendor/etc/init/init.md.rc (edited by sheffdev) (testing new method)
+    # insmod /modules/nt36xxx_ss.ko
+    # insmod /modules/chipone-tddi_ss.ko
+    # insmod /modules/chipone-tddi.ko
+    # insmod /modules/gcore_ss.ko
+    # insmod /modules/ilitek-tddi.ko
+    # insmod /modules/focaltech_ts.ko
 
     chown system system sys/class/sec/tsp/input/enabled
     chmod 664 sys/class/sec/tsp/input/enabled
+
+on fs
+    start load_modules
+
+service load_modules /modules/loadmodules.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
 
 on post-fs-data
     chown system system /proc/tp_gesture
