@@ -4,3 +4,5 @@ Only 1 issue here
 1. Encryption, /data partition cant be reached
 
 Touchscreen FIXED!! (soon modif for it, bcs it works strange)
+
+Do not make forks, if you want to cooperate: telegram: @sheffdeveloper
