@@ -1,10 +1,50 @@
-#<src>                          <mnt_point>   <type>      <mnt_flags and options>    <fs_mgr_flags>
+/dev/block/mmcblk0boot0                                                        /spl                emmc    defaults    defaults
+/dev/block/mmcblk0boot1                                                        /spl_bk             emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/uboot                 /uboot              emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/uboot_bak             /uboot_bak          emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/sml                   /sml                emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/sml_bak               /sml_bak            emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/trustos               /tos                emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/trustos_bak           /tos_bak            emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/teecfg                /teecfg             emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/teecfg_bak            /teecfg_bak         emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/vbmeta                /vbmeta             emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/vbmeta_bak            /vbmeta_bak         emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/vbmeta_system         /vbmeta_system      emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/vbmeta_vendor         /vbmeta_vendor      emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/dtbo                  /dtbo               emmc    defaults    defaults
 
-system                           /system       ext4        ro,barrier=1,discard      avb=vbmeta,logical,first_stage_mount
-system_ext                       /system_ext   ext4        ro,barrier=1,discard      avb=vbmeta,logical,first_stage_mount
-vendor                           /vendor       ext4        ro,barrier=1,discard      avb,logical,first_stage_mount
-product                          /product      ext4        ro,barrier=1,discard      avb,logical,first_stage_mount
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/l_ldsp                /ltedsp             emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/l_gdsp                /ltegdsp            emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/l_modem               /ltemodem           emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/l_fixnv1              /ltefixnv1          emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/l_fixnv2              /ltefixnv2          emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/l_deltanv             /ltedeltanv         emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/l_runtimenv1          /lteruntimenv1      emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/l_runtimenv2          /lteruntimenv2      emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/wcnmodem              /wcnmodem           emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/gpsgl                 /gnssmodem          emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/gpsbd                 /gnssbdmodem        emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/pm_sys                /pmsys              emmc    defaults    defaults
 
-/dev/block/by-name/metadata     /metadata     ext4       defaults                  wait,first_stage_mount
-/dev/block/by-name/userdata     /data         f2fs       defaults                  wait
-/dev/block/by-name/misc         /misc         emmc       defaults                  recoveryonly
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/misc                  /misc               emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/boot                  /boot               emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/recovery              /recovery           emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/persist               /persist            emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/logo                  /logo               emmc    defaults    defaults
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/fbootlogo             /fbootlogo          emmc    defaults    defaults
+
+system /system ext4 ro,barrier=1 wait,avb=vbmeta_system,logical,first_stage_mount
+system_ext /system_ext ext4 ro,barrier=1 wait,logical,first_stage_mount
+vendor /vendor ext4 ro,barrier=1 wait,avb=vbmeta_vendor,logical,first_stage_mount
+product /product ext4 ro,barrier=1 wait,avb=vbmeta,logical,first_stage_mount
+
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/socko                 /socko              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/odmko                 /odmko              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
+
+/dev/block/by-name/userdata                                                    /data               f2fs    noatime,nosuid,nodev,discard,inline_xattr,inline_data,inlinecrypt,fsync_mode=nobarrier    latemount,wait,check,reservedsize=128M,checkpoint=fs,formattable
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/metadata              /metadata           ext4    nodev,noatime,nosuid,errors=panic wait,formattable,first_stage_mount,check
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/cache                 /cache              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/prodnv                /mnt/vendor         ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc     wait,check
+
+/dev/block/platform/soc/soc:ap-ahb/20300000.sdio/mmcblk1p1                     /storage/sdcard0    vfat    defaults    defaults

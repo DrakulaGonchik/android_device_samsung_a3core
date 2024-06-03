@@ -1,5 +1,13 @@
 # from vendor/etc/init/vendor.samsung.hardware.sysinput@1.1-service.rc
 on early-boot
+    # from vendor/etc/init/init.md.rc (edited by sheffdev)
+    insmod /vendor/lib/nt36xxx_ss.ko
+    insmod /vendor/lib/chipone-tddi_ss.ko
+    insmod /vendor/lib/chipone-tddi.ko
+    insmod /vendor/lib/gcore_ss.ko
+    insmod /vendor/lib/ilitek-tddi.ko
+    insmod /vendor/lib/focaltech_ts.ko
+    # default
     chown system system /dev/tspio
     chown system system /sys/class/sec/tsp/enable
 
@@ -14,14 +22,6 @@ on init
     chmod 766 /proc/cpwcn/wdtirq
 
 on post-fs
-    # from vendor/etc/init/init.md.rc (edited by sheffdev)
-    insmod /modules/nt36xxx_ss.ko
-    insmod /modules/chipone-tddi_ss.ko
-    insmod /modules/chipone-tddi.ko
-    insmod /modules/gcore_ss.ko
-    insmod /modules/ilitek-tddi.ko
-    insmod /modules/focaltech_ts.ko
-
     chown system system sys/class/sec/tsp/input/enabled
     chmod 664 sys/class/sec/tsp/input/enabled
 
