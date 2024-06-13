@@ -1,12 +1,16 @@
 # from vendor/etc/init/vendor.samsung.hardware.sysinput@1.1-service.rc
 on early-boot
     # from vendor/etc/init/init.md.rc (edited by sheffdev)
+    # adding more ts lkm (rsuntk)
     insmod /vendor/lib/nt36xxx_ss.ko
     insmod /vendor/lib/chipone-tddi_ss.ko
     insmod /vendor/lib/chipone-tddi.ko
     insmod /vendor/lib/gcore_ss.ko
+    insmod /vendor/lib/gcore_7202h.ko
     insmod /vendor/lib/ilitek-tddi.ko
     insmod /vendor/lib/focaltech_ts.ko
+    insmod /vendor/lib/tcs3430.ko
+    
     # default
     chown system system /dev/tspio
     chown system system /sys/class/sec/tsp/enable
